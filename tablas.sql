@@ -197,6 +197,20 @@ CREATE TABLE Siniestro (
       REFERENCES EstadoSiniestro(estado_siniestro_id)
 );
 
+CREATE OR REPLACE TYPE SiniestroColision  AS Siniestro (
+    siniestro_id     NUMBER(N,0) PRYMARY KEY,
+    num_reporte_vial CHAR(8)     NOT NULL,
+    grua             BIT         NOT NULL
+) not final
+/
+
+CREATE OR REPLACE TYPE SiniestroColision AS Siniestro (
+    siniestro_id     NUMBER(N,0) PRYMARY KEY,
+    num_reporte_vial CHAR(8)     NOT NULL,
+    grua             BIT         NOT NULL
+) not final
+/
+
 CREATE TABLE HistorialEstado (
     historial_estado_id      NUMBER(N,0) NOT NULL,
     fecha_asignacion         DATE        NOT NULL,
