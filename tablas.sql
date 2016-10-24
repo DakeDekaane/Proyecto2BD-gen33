@@ -179,7 +179,7 @@ CREATE TABLE EstadoSiniestro (
       REFERENCES CatalogoEstadosSiniestro(tipo_estado_siniestro_id)
 );
 
-CREATE TABLE Siniestro (
+CREATE OR REPLACE TYPE Siniestro AS OBJECT (
     siniestro_id        NUMBER(N,0) PRIMARY KEY,
     fecha               DATE        NOT NULL,
     hora                TIMESTAMP   NOT NULL,
@@ -195,21 +195,27 @@ CREATE TABLE Siniestro (
     CONSTRAINT fk_estado_siniestro_id
       FOREING KEY (estado_siniestro_id)
       REFERENCES EstadoSiniestro(estado_siniestro_id)
-);
+)not final
+/
 
 CREATE OR REPLACE TYPE SiniestroColision  AS Siniestro (
     siniestro_id     NUMBER(N,0) PRYMARY KEY,
     num_reporte_vial CHAR(8)     NOT NULL,
     grua             BIT         NOT NULL
-) not final
+)
 /
 
-CREATE OR REPLACE TYPE SiniestroColision AS Siniestro (
+CREATE OR REPLACE TYPE SiniestroSocial AS Siniestro (
     siniestro_id     NUMBER(N,0) PRYMARY KEY,
     num_reporte_vial CHAR(8)     NOT NULL,
     grua             BIT         NOT NULL
-) not final
+)
 /
+
+CREATE OR REPLACE TYPE SiniestroMaterial AS Siniestro (
+    siniestro_id NUMBER(N,0) PRYMARY KEY,
+    descripcion_danio VARCHAR(50) NOT NULL
+);
 
 CREATE TABLE HistorialEstado (
     historial_estado_id      NUMBER(N,0) NOT NULL,
