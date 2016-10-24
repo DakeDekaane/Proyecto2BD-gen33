@@ -122,6 +122,12 @@ CREATE TABLE Poliza (
       REFERENCES poliza(poliza_id)
 );
 
+CREATE TABLE CatalogoAgencias (
+    agencia_id  NUMBER(N,0) PRYMARY KEY,
+    nombre      VARCHAR2(20) NOT NULL,
+    descripcion VARCHAR2(30) NOT NULL
+);
+
 CREATE TABLE AutoInvolucrado (
     auto_inv_id NUMBER(N,0)  PRIMARY KEY,
     marca       VARCHAR2(15) NOT NULL,
@@ -148,7 +154,7 @@ CREATE TABLE PersonaInvolucrada (
     descripcion_danio VARCHAR(30) NOT NULL,
     siniestro_id      NUMBER(N,0) NOT NULL,
   
-    CONSTRAINT fk_siniestro_Id
+    CONSTRAINT fk_siniestro_I¿id
       FOREIGN KEY siniestro_id
       REFERENCES Siniestro(siniestro_id)
 ); 
