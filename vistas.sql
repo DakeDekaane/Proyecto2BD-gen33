@@ -1,3 +1,13 @@
+--------------------------------------------
+-- Bases de Datos PROTECO                 --
+-- Proyecto 2: CreaciOn y manejo con SQL  --
+-- Integrantes:                           --
+--  * SAnchez Neri David Yaxkin           --
+--  * MartInez Ortiz SaUl Axel            --
+--------------------------------------------
+
+-- Vista de las tablas
+
 CREATE OR REPLACE VIEW Cotizaciones_Mayor_1900 AS
 	SELECT * FROM Cotizacion c WHERE c.costo > 1900;
 
