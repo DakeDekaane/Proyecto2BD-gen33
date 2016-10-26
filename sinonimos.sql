@@ -7,7 +7,8 @@
 --------------------------------------------
 
 -- Creación de sinónimos
-CREATE SYNONYM Auto FOR Auto; -- Se me hace un poco contraproducente usar un sinónimo para esta tabla
+-- Se me hace un poco contraproducente usar un sinónimo para la tabla Auto
+CREATE SYNONYM Auto FOR Auto; 
 CREATE SYNONYM AutoInv FOR AutoInvolucrado;
 CREATE SYNONYM Agencias FOR CatalogoAgencias;
 CREATE SYNONYM TipoSin FOR CatalogoEstadosSiniestro;
